@@ -77,7 +77,8 @@ const TermsOfService = () => {
             <section className="space-y-3">
               <h2 className="text-xl font-display">7. Personal Safety & User Vetting</h2>
               <p className="text-muted-foreground">JourneyNexus does not perform comprehensive background checks, criminal screenings, or identity verifications on all users. While we may offer optional verification features, <strong className="text-foreground">the platform does not guarantee the identity, character, or intentions of any user.</strong></p>
-              <p className="text-muted-foreground">You acknowledge that meeting and traveling with strangers involves inherent risks. You are solely responsible for exercising personal judgment, conducting your own due diligence, and taking appropriate safety precautions when interacting with other users both online and in person.</p>
+              <p className="text-muted-foreground">You acknowledge that meeting and traveling with strangers involves inherent risks. You are solely responsible for exercising personal judgment, conducting your own due diligence, and taking appropriate safety precautions when interacting with other users both online and in person. <strong className="text-foreground">Failure to follow safety precautions is at your own risk.</strong></p>
+              <p className="text-muted-foreground"><strong className="text-foreground">JourneyNexus is not liable for any injuries, losses, damages, or harm — physical, emotional, or financial — resulting from your interactions with other users, whether online or in person.</strong> You use the Service and engage with other users entirely at your own risk.</p>
             </section>
 
             <section className="space-y-3">
