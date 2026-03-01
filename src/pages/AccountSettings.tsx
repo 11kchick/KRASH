@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Shield, Trash2, Mail, User, Camera } from "lucide-react";
+import { Shield, Trash2, Mail, User, Camera, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import CameraCapture from "@/components/CameraCapture";
+import MFASettings from "@/components/MFASettings";
 
 const AccountSettings = () => {
   const { user, loading, signOut } = useAuth();
@@ -195,6 +196,14 @@ const AccountSettings = () => {
                 onCheckedChange={(checked) => updateProfile.mutate({ marketing_opt_in: checked })}
               />
             </div>
+          </div>
+
+          {/* Security - 2FA */}
+          <div className="bg-card rounded-2xl shadow-card p-8 space-y-6 mb-6">
+            <h2 className="text-xl font-display text-foreground flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-primary" /> Two-Step Verification
+            </h2>
+            <MFASettings />
           </div>
 
           {/* Danger Zone */}
