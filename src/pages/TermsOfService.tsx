@@ -52,11 +52,16 @@ const TermsOfService = () => {
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Use the Service for unlawful purposes</li>
                 <li>Post false, misleading, or fraudulent trip information</li>
+                <li>Upload, share, or distribute content that is offensive, obscene, defamatory, infringes on intellectual property rights, or is otherwise illegal</li>
+                <li>Send unsolicited commercial messages, spam, or promote other services or products without prior written consent</li>
+                <li>Impersonate any person or entity, or falsely represent your affiliation with any person, entity, or the Service itself</li>
                 <li>Harass, abuse, or threaten other users</li>
-                <li>Attempt to gain unauthorized access to systems or data</li>
+                <li>Attempt to gain unauthorized access to systems, accounts, or data, or introduce viruses, malware, trojans, or other harmful code</li>
+                <li>Attempt to bypass, circumvent, or disable any security features, access controls, usage limits, or restrictions of the Service</li>
                 <li>Scrape, crawl, or otherwise extract data without permission</li>
                 <li>Interfere with the operation of the Service</li>
               </ul>
+              <p className="text-muted-foreground">You are encouraged to report any known or suspected violations of these terms by contacting us at <strong className="text-foreground">legal@journeynexus.app</strong>.</p>
             </section>
 
             <section className="space-y-3">
