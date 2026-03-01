@@ -265,8 +265,13 @@ const Footer = () => (
         <nav aria-label="Footer navigation" className="flex items-center gap-4 text-sm font-body flex-wrap justify-center">
           <Link to="/privacy" className="text-background/50 hover:text-background transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="text-background/50 hover:text-background transition-colors">Terms of Service</Link>
-          <Link to="/privacy#your-choices" className="text-background/50 hover:text-background transition-colors">Privacy Choices</Link>
-          <Link to="/privacy#cookies" className="text-background/50 hover:text-background transition-colors">Cookie Statement</Link>
+          <Link to="/privacy#your-choices" className="text-background/50 hover:text-background transition-colors">Do Not Sell My Info</Link>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("krash-open-cookie-settings"))}
+            className="text-background/50 hover:text-background transition-colors"
+          >
+            Manage Cookies
+          </button>
         </nav>
         <p className="text-background/50 text-sm font-body">
           © 2026 KRASH. Break routine. Build memories.
