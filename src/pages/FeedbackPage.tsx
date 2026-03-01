@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Navigate } from "react-router-dom";
 
 const categories = [
-  { value: "question", label: "Question", icon: HelpCircle, description: "Ask us anything about JourneyNexus" },
+  { value: "question", label: "Question", icon: HelpCircle, description: "Ask us anything about KRASH" },
   { value: "idea", label: "Idea / Suggestion", icon: Lightbulb, description: "Share a feature idea or improvement" },
   { value: "concern", label: "Concern / Issue", icon: AlertTriangle, description: "Report a problem or safety concern" },
   { value: "general", label: "General", icon: MessageSquare, description: "Anything else on your mind" },
@@ -61,7 +61,7 @@ const FeedbackPage = () => {
           </div>
           <h2 className="text-2xl font-display text-foreground mb-3">Thanks for Your Feedback!</h2>
           <p className="text-muted-foreground font-body mb-6">
-            We read every message. Your input helps make JourneyNexus better for everyone.
+            We read every message. Your input helps make KRASH better for everyone.
           </p>
           <Button variant="hero" onClick={() => { setSubmitted(false); setMessage(""); }}>
             Submit Another

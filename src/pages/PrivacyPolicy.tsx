@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
                 <li><strong className="text-foreground">Opt out</strong> of marketing communications</li>
                 <li><strong className="text-foreground">Withdraw consent</strong> at any time</li>
               </ul>
-              <p className="text-muted-foreground">To exercise any of these rights, contact us at <strong className="text-foreground">privacy@journeynexus.app</strong>.</p>
+              <p className="text-muted-foreground">To exercise any of these rights, contact us at <strong className="text-foreground">privacy@krash.app</strong>.</p>
             </section>
 
             <section id="cookies" className="space-y-3">
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">9. Children's Privacy</h2>
-              <p className="text-muted-foreground">JourneyNexus is not intended for users under 18. We do not knowingly collect data from minors.</p>
+              <p className="text-muted-foreground">KRASH is not intended for users under 18. We do not knowingly collect data from minors.</p>
             </section>
 
             <section className="space-y-3">
@@ -109,7 +109,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <div className="pt-4 border-t border-border">
-              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">privacy@journeynexus.app</strong></p>
+              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">privacy@krash.app</strong></p>
             </div>
           </div>
         </motion.div>

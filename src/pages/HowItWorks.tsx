@@ -27,7 +27,7 @@ const steps = [
   {
     icon: DollarSign,
     title: "5. Book & Split Costs",
-    description: "One person books the accommodation on Airbnb, VRBO, or a similar platform. Then the group settles shared costs among themselves using Venmo, PayPal, Zelle, or similar. Fair and transparent — JourneyNexus never handles trip payments.",
+    description: "One person books the accommodation on Airbnb, VRBO, or a similar platform. Then the group settles shared costs among themselves using Venmo, PayPal, Zelle, or similar. Fair and transparent — KRASH never handles trip payments.",
   },
   {
     icon: Heart,
@@ -44,7 +44,7 @@ const HowItWorks = () => (
         animate={{ opacity: 1, y: 0 }}
         className="mb-12"
       >
-        <h1 className="text-3xl sm:text-4xl font-display text-foreground mb-3">How JourneyNexus Works</h1>
+        <h1 className="text-3xl sm:text-4xl font-display text-foreground mb-3">How KRASH Works</h1>
         <p className="text-muted-foreground font-body text-lg">
           From posting to matching to paying — here's the full breakdown.
         </p>
