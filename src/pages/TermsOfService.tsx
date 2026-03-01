@@ -23,6 +23,7 @@ const TermsOfService = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">1. Acceptance of Terms</h2>
+              <p className="text-muted-foreground"><strong className="text-foreground">By creating an account and using this Service, you confirm that you have read, understood, and agree to these Terms of Service. You will be required to scroll through the entire Terms before accepting. If you do not agree, you may not use the Service.</strong></p>
               <p className="text-muted-foreground">By accessing or using JourneyNexus ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service.</p>
             </section>
 
