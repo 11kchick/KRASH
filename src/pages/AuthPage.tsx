@@ -10,6 +10,7 @@ import { lovable } from "@/integrations/lovable/index";
 import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
 import TOSModal from "@/components/TOSModal";
+import MFAChallenge from "@/components/MFAChallenge";
 
 const loginSchema = z.object({
   email: z.string().trim().email("Invalid email").max(255),
@@ -31,6 +32,8 @@ const AuthPage = () => {
   const [loading, setLoading] = useState(false);
   const [showTOS, setShowTOS] = useState(false);
   const [tosAccepted, setTosAccepted] = useState(false);
+  const [mfaFactorId, setMfaFactorId] = useState<string | null>(null);
+  const [showMFA, setShowMFA] = useState(false);
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
@@ -70,11 +73,26 @@ const AuthPage = () => {
         toast({ title: "Check your email", description: "We sent you a verification link." });
       } else {
         const parsed = loginSchema.parse({ email, password });
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabase.auth.signInWithPassword({
           email: parsed.email,
           password: parsed.password,
         });
         if (error) throw error;
+
+        // Check if MFA is required
+        const { data: aalData } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
+        if (aalData && aalData.nextLevel === "aal2" && aalData.currentLevel !== "aal2") {
+          // User has MFA enrolled, need to verify
+          const { data: factorsData } = await supabase.auth.mfa.listFactors();
+          const totpFactor = factorsData?.totp?.find(f => f.status === "verified");
+          if (totpFactor) {
+            setMfaFactorId(totpFactor.id);
+            setShowMFA(true);
+            setLoading(false);
+            return;
+          }
+        }
+
         navigate("/");
       }
     } catch (err: any) {
@@ -84,6 +102,26 @@ const AuthPage = () => {
 
     setLoading(false);
   };
+
+  if (showMFA && mfaFactorId) {
+    return (
+      <div className="min-h-screen bg-gradient-warm pt-24 pb-16 flex items-center justify-center">
+        <div className="max-w-md w-full mx-auto px-4">
+          <div className="bg-card rounded-2xl shadow-elevated p-8">
+            <MFAChallenge
+              factorId={mfaFactorId}
+              onVerified={() => navigate("/")}
+              onCancel={async () => {
+                await supabase.auth.signOut();
+                setShowMFA(false);
+                setMfaFactorId(null);
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-warm pt-24 pb-16 flex items-center justify-center">
