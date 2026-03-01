@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
+import TOSModal from "@/components/TOSModal";
 
 const loginSchema = z.object({
   email: z.string().trim().email("Invalid email").max(255),
@@ -29,6 +29,8 @@ const AuthPage = () => {
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showTOS, setShowTOS] = useState(false);
+  const [tosAccepted, setTosAccepted] = useState(false);
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
@@ -43,6 +45,14 @@ const AuthPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (mode === "signup" && !tosAccepted) {
+      setShowTOS(true);
+      return;
+    }
+    await performSubmit();
+  };
+
+  const performSubmit = async () => {
     setLoading(true);
 
     try {
@@ -184,12 +194,26 @@ const AuthPage = () => {
 
             {mode === "signup" && (
               <p className="text-xs text-center text-muted-foreground font-body">
-                By signing up, you agree to our{" "}
-                <Link to="/terms" className="text-primary hover:underline">Terms</Link> and{" "}
-                <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+                {tosAccepted ? (
+                  <span className="text-primary">✓ You accepted our Terms of Service and{" "}
+                    <Link to="/privacy" className="hover:underline">Privacy Policy</Link>.</span>
+                ) : (
+                  <>You'll need to accept our{" "}
+                    <button onClick={() => setShowTOS(true)} className="text-primary hover:underline">Terms</button> and{" "}
+                    <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link> to sign up.</>
+                )}
               </p>
             )}
           </div>
+
+          <TOSModal
+            open={showTOS}
+            onAccept={() => {
+              setTosAccepted(true);
+              setShowTOS(false);
+            }}
+            onDecline={() => setShowTOS(false)}
+          />
         </motion.div>
       </div>
     </div>
