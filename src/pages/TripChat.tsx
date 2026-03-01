@@ -269,8 +269,8 @@ const TripChat = () => {
       <div className="bg-card border-b border-border px-4 py-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/browse" className="text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="w-5 h-5" />
+            <Link to="/browse" className="text-muted-foreground hover:text-foreground" aria-label="Back to browse trips">
+              <ArrowLeft className="w-5 h-5" aria-hidden="true" />
             </Link>
             <div>
               <h1 className="font-display text-foreground flex items-center gap-2">
@@ -289,7 +289,7 @@ const TripChat = () => {
             {members?.slice(0, 5).map((m) => (
               <div key={m.user_id} className="w-8 h-8 rounded-full border-2 border-card overflow-hidden bg-muted">
                 {m.profile?.avatar_url ? (
-                  <img src={m.profile.avatar_url} alt={m.profile.name} className="w-full h-full object-cover" />
+                  <img src={m.profile.avatar_url} alt={`${m.profile.name}'s profile photo`} className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-xs font-display text-muted-foreground">
                     {m.profile?.name?.charAt(0) || "?"}
@@ -317,7 +317,7 @@ const TripChat = () => {
       </div>
 
       {/* Messages */}
-      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto px-4 py-4">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto px-4 py-4" role="log" aria-label="Chat messages" aria-live="polite">
         <div className="max-w-4xl mx-auto space-y-3">
           {(!messages || messages.length === 0) && (
             <div className="text-center py-16">
@@ -339,8 +339,8 @@ const TripChat = () => {
                 className={`flex gap-2.5 ${isMe ? "flex-row-reverse" : ""}`}
               >
                 <div className="w-8 h-8 rounded-full overflow-hidden bg-muted flex-shrink-0">
-                  {msg.profile?.avatar_url ? (
-                    <img src={msg.profile.avatar_url} alt="" className="w-full h-full object-cover" />
+                {msg.profile?.avatar_url ? (
+                    <img src={msg.profile.avatar_url} alt={`${isMe ? "Your" : msg.profile?.name || "Unknown user"} profile photo`} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-xs font-display text-muted-foreground">
                       {msg.profile?.name?.charAt(0) || "?"}
@@ -387,7 +387,7 @@ const TripChat = () => {
               <div>
                 <p className="text-sm font-body font-medium">{blockWarning}</p>
               </div>
-              <button onClick={() => setBlockWarning(null)} className="ml-auto text-destructive-foreground/70 hover:text-destructive-foreground text-lg leading-none">×</button>
+              <button onClick={() => setBlockWarning(null)} className="ml-auto text-destructive-foreground/70 hover:text-destructive-foreground text-lg leading-none" aria-label="Dismiss warning">×</button>
             </div>
           </motion.div>
         )}
@@ -430,6 +430,7 @@ const TripChat = () => {
                 className="flex-1 h-11"
                 maxLength={2000}
                 autoFocus
+                aria-label="Message input"
               />
               <Button
                 variant="hero"
@@ -437,8 +438,9 @@ const TripChat = () => {
                 type="submit"
                 disabled={!newMessage.trim() || sending}
                 className="h-11 w-11 flex-shrink-0"
+                aria-label="Send message"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4" aria-hidden="true" />
               </Button>
             </form>
           </div>

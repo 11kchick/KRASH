@@ -157,13 +157,13 @@ const CameraCapture = ({ onCapture, onCancel, existingPhotoUrl }: CameraCaptureP
               />
             </div>
             <div className="flex gap-3">
-              <Button variant="outline" size="icon" onClick={flipCamera} title="Flip camera">
+              <Button variant="outline" size="icon" onClick={flipCamera} aria-label="Flip camera">
                 <RotateCcw className="w-4 h-4" />
               </Button>
               <Button variant="hero" size="lg" onClick={takePhoto}>
                 <Camera className="w-5 h-5 mr-2" /> Capture
               </Button>
-              <Button variant="outline" size="icon" onClick={() => { stopCamera(); onCancel?.(); }}>
+              <Button variant="outline" size="icon" onClick={() => { stopCamera(); onCancel?.(); }} aria-label="Cancel camera">
                 <X className="w-4 h-4" />
               </Button>
             </div>
@@ -179,7 +179,7 @@ const CameraCapture = ({ onCapture, onCancel, existingPhotoUrl }: CameraCaptureP
             className="flex flex-col items-center gap-4"
           >
             <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-secondary shadow-elevated">
-              <img src={capturedImage} alt="Captured" className="w-full h-full object-cover" />
+              <img src={capturedImage} alt="Your captured profile photo preview" className="w-full h-full object-cover" />
             </div>
             <p className="text-sm text-muted-foreground font-body">Looking good?</p>
             <div className="flex gap-3">

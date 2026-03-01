@@ -28,6 +28,9 @@ const CookieConsent = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
+          role="dialog"
+          aria-label="Cookie consent"
+          aria-describedby="cookie-description"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
@@ -41,7 +44,7 @@ const CookieConsent = () => {
               </div>
               <div>
                 <h3 className="font-display text-foreground text-lg mb-1">We value your privacy</h3>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                <p id="cookie-description" className="text-sm text-muted-foreground font-body leading-relaxed">
                   We use essential cookies for authentication and security. Optional analytics cookies help us improve KRASH. 
                   Read our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
                 </p>
