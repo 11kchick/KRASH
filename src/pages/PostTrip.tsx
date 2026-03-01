@@ -1,21 +1,28 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Users, Calendar, ArrowRight, Check, Camera } from "lucide-react";
+import { MapPin, Users, Calendar, ArrowRight, Check, Camera, CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Calendar as CalendarPicker } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const PostTrip = () => {
   const { toast } = useToast();
   const { user, loading } = useAuth();
+  const navigate = useNavigate();
   const [destination, setDestination] = useState("");
   const [people, setPeople] = useState("");
-  const [weeks, setWeeks] = useState("");
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const { data: profile, isLoading: profileLoading } = useQuery({
@@ -64,14 +71,41 @@ const PostTrip = () => {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!destination || !people || !weeks) {
+    if (!destination || !people || !startDate || !endDate) {
       toast({ title: "Please fill in all fields", variant: "destructive" });
       return;
     }
+    if (endDate <= startDate) {
+      toast({ title: "End date must be after start date", variant: "destructive" });
+      return;
+    }
+    setSubmitting(true);
+
+    const weeks = Math.max(1, Math.round((endDate.getTime() - startDate.getTime()) / (7 * 24 * 60 * 60 * 1000)));
+
+    const { data, error } = await supabase.from("trips").insert({
+      user_id: user.id,
+      destination: destination.trim(),
+      people_count: Number(people),
+      stay_weeks: weeks,
+      start_date: format(startDate, "yyyy-MM-dd"),
+      end_date: format(endDate, "yyyy-MM-dd"),
+    }).select("id").single();
+
+    setSubmitting(false);
+
+    if (error) {
+      toast({ title: "Failed to post trip", description: error.message, variant: "destructive" });
+      return;
+    }
+
     setSubmitted(true);
-    toast({ title: "Trip posted!", description: "We'll match you with travelers heading the same way." });
+    toast({ title: "Trip posted!", description: "Your group chat is ready." });
+
+    // Navigate to chat after a moment
+    setTimeout(() => navigate(`/trip/${data.id}/chat`), 2000);
   };
 
   if (submitted) {
@@ -87,14 +121,14 @@ const PostTrip = () => {
           </div>
           <h2 className="text-2xl font-display text-foreground mb-3">Trip Posted!</h2>
           <p className="text-muted-foreground font-body mb-2">
-            <strong>{people} {Number(people) === 1 ? "person" : "people"}</strong> heading to <strong>{destination}</strong> for <strong>{weeks} {Number(weeks) === 1 ? "week" : "weeks"}</strong>.
+            <strong>{people} {Number(people) === 1 ? "person" : "people"}</strong> heading to <strong>{destination}</strong>.
+          </p>
+          <p className="text-sm text-muted-foreground font-body mb-2">
+            {startDate && endDate && `${format(startDate, "MMM d")} – ${format(endDate, "MMM d, yyyy")}`}
           </p>
           <p className="text-sm text-muted-foreground font-body mb-6">
-            We'll notify you when travelers match with your trip.
+            Redirecting to your group chat...
           </p>
-          <Button variant="hero" onClick={() => setSubmitted(false)}>
-            Post Another Trip
-          </Button>
         </motion.div>
       </div>
     );
@@ -106,7 +140,7 @@ const PostTrip = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-3xl sm:text-4xl font-display text-foreground mb-3">Post Your Trip</h1>
           <p className="text-muted-foreground font-body text-lg mb-8">
-            Just three things — that's all we need to find your match.
+            Tell us the details and we'll set up your group.
           </p>
 
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-elevated p-8 space-y-6">
@@ -137,26 +171,73 @@ const PostTrip = () => {
                 onChange={(e) => setPeople(e.target.value)}
                 className="h-12 text-base"
               />
+              <p className="text-xs text-muted-foreground font-body">Include yourself and any under-18 travelers.</p>
             </div>
 
-            <div className="space-y-2">
-              <Label className="flex items-center gap-2 font-body font-medium text-foreground">
-                <Calendar className="w-4 h-4 text-primary" />
-                How long are you staying? (weeks)
-              </Label>
-              <Input
-                type="number"
-                min="1"
-                max="52"
-                placeholder="e.g. 3"
-                value={weeks}
-                onChange={(e) => setWeeks(e.target.value)}
-                className="h-12 text-base"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label className="flex items-center gap-2 font-body font-medium text-foreground">
+                  <Calendar className="w-4 h-4 text-primary" />
+                  Start Date
+                </Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn("w-full h-12 justify-start text-left font-normal", !startDate && "text-muted-foreground")}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {startDate ? format(startDate, "MMM d, yyyy") : "Pick a date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <CalendarPicker
+                      mode="single"
+                      selected={startDate}
+                      onSelect={setStartDate}
+                      disabled={(date) => date < new Date()}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="flex items-center gap-2 font-body font-medium text-foreground">
+                  <Calendar className="w-4 h-4 text-primary" />
+                  End Date
+                </Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn("w-full h-12 justify-start text-left font-normal", !endDate && "text-muted-foreground")}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {endDate ? format(endDate, "MMM d, yyyy") : "Pick a date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <CalendarPicker
+                      mode="single"
+                      selected={endDate}
+                      onSelect={setEndDate}
+                      disabled={(date) => date < (startDate || new Date())}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
             </div>
 
-            <Button variant="hero" size="xl" className="w-full" type="submit">
-              Post My Trip <ArrowRight className="w-5 h-5" />
+            <p className="text-xs text-muted-foreground font-body">
+              Dates are flexible — other group members can suggest changes in the group chat.
+            </p>
+
+            <Button variant="hero" size="xl" className="w-full" type="submit" disabled={submitting}>
+              {submitting ? "Posting..." : "Post My Trip"} <ArrowRight className="w-5 h-5" />
             </Button>
           </form>
         </motion.div>
