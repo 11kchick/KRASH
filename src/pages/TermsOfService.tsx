@@ -65,37 +65,60 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">7. Limitation of Liability</h2>
-              <p className="text-muted-foreground">JourneyNexus is provided "as-is" without warranties of any kind. We are not liable for:</p>
+              <h2 className="text-xl font-display">7. Personal Safety & User Vetting</h2>
+              <p className="text-muted-foreground">JourneyNexus does not perform comprehensive background checks, criminal screenings, or identity verifications on all users. While we may offer optional verification features, <strong className="text-foreground">the platform does not guarantee the identity, character, or intentions of any user.</strong></p>
+              <p className="text-muted-foreground">You acknowledge that meeting and traveling with strangers involves inherent risks. You are solely responsible for exercising personal judgment, conducting your own due diligence, and taking appropriate safety precautions when interacting with other users both online and in person.</p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="text-xl font-display">8. Limitation of Liability</h2>
+              <p className="text-muted-foreground">JourneyNexus is provided "as-is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
-                <li>The behavior, actions, or reliability of other users</li>
-                <li>Any losses arising from trip arrangements made through the platform</li>
-                <li>Service interruptions, data loss, or security breaches beyond our control</li>
+                <li>The behavior, actions, safety, or reliability of other users</li>
+                <li>Any losses, injuries, damages, or claims arising from trip arrangements, shared accommodations, or in-person meetings facilitated through the platform</li>
+                <li>Service interruptions, data loss, or security breaches beyond our reasonable control</li>
+                <li>The performance, availability, accuracy, or security of any third-party services integrated with or linked from the platform, including payment processors, mapping services, and communication tools</li>
               </ul>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">8. Intellectual Property</h2>
+              <h2 className="text-xl font-display">9. Indemnification</h2>
+              <p className="text-muted-foreground">You agree to indemnify, defend, and hold harmless JourneyNexus, its officers, employees, and affiliates from any claims, damages, losses, liabilities, costs, or expenses (including reasonable legal fees) arising out of or related to:</p>
+              <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
+                <li>Your use or misuse of the Service</li>
+                <li>Your interactions with other users, whether online or in person</li>
+                <li>Your violation of these Terms or any applicable law</li>
+                <li>Any content you post or share on the platform</li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="text-xl font-display">10. Dispute Resolution</h2>
+              <p className="text-muted-foreground">Any disputes arising from or related to these Terms or the Service shall first be attempted to be resolved through good-faith negotiation. If a resolution cannot be reached within 30 days, disputes shall be submitted to binding arbitration in accordance with applicable rules. You agree that any claims will be brought individually, not as part of a class action or representative proceeding.</p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="text-xl font-display">11. Intellectual Property</h2>
               <p className="text-muted-foreground">All content, branding, and code on JourneyNexus is owned by us or our licensors. You retain ownership of content you post, but grant us a license to display it on the platform.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">9. Privacy</h2>
+              <h2 className="text-xl font-display">12. Privacy</h2>
               <p className="text-muted-foreground">Your use of the Service is also governed by our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>, which explains how we collect, use, and protect your data.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">10. Termination</h2>
+              <h2 className="text-xl font-display">13. Termination</h2>
               <p className="text-muted-foreground">We reserve the right to suspend or terminate accounts that violate these terms. You may terminate your account at any time. Upon termination, your data will be deleted in accordance with our Privacy Policy.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">11. Changes to Terms</h2>
+              <h2 className="text-xl font-display">14. Changes to Terms</h2>
               <p className="text-muted-foreground">We may update these terms from time to time. Continued use of the Service after changes constitutes acceptance of the updated terms.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">12. Contact</h2>
+              <h2 className="text-xl font-display">15. Contact</h2>
               <p className="text-muted-foreground">For questions about these terms, contact us at <strong className="text-foreground">legal@journeynexus.app</strong>.</p>
             </section>
 
