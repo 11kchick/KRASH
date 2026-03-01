@@ -26,8 +26,8 @@ const steps = [
   },
   {
     icon: DollarSign,
-    title: "5. Split Costs Evenly",
-    description: "The total accommodation cost is divided by everyone in the group. For example: $2,600 ÷ 6 travelers = ~$433 each. Fair and transparent.",
+    title: "5. Book & Split Costs",
+    description: "One person books the accommodation on Airbnb, VRBO, or a similar platform. Then the group settles shared costs among themselves using Venmo, PayPal, Zelle, or similar. Fair and transparent — JourneyNexus never handles trip payments.",
   },
   {
     icon: Heart,
