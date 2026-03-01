@@ -70,8 +70,10 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">6. Donations & Payments</h2>
-              <p className="text-muted-foreground">Donations made through JourneyNexus are voluntary and processed by third-party payment providers. We do not store payment card information. Refund policies are outlined on the donation page.</p>
+              <h2 className="text-xl font-display">6. Payments & Cost Sharing</h2>
+              <p className="text-muted-foreground"><strong className="text-foreground">JourneyNexus does not process, facilitate, or handle any payments for trip accommodations, travel expenses, or cost-sharing between users.</strong> Users are responsible for booking accommodations directly through third-party platforms such as Airbnb, VRBO, or similar services, and for settling shared costs among themselves using external payment methods such as Venmo, PayPal, Zelle, or similar tools.</p>
+              <p className="text-muted-foreground">The only payments processed by JourneyNexus are for signup and membership fees. These are processed by third-party payment providers. We do not store payment card information.</p>
+              <p className="text-muted-foreground"><strong className="text-foreground">JourneyNexus is not responsible for any disputes, losses, or issues arising from accommodation bookings, cost-sharing arrangements, or payments made between users outside of the platform.</strong></p>
             </section>
 
             <section className="space-y-3">
