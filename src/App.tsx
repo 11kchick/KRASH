@@ -19,6 +19,7 @@ import ResetPassword from "./pages/ResetPassword";
 import AdminDashboard from "./pages/AdminDashboard";
 import AccountSettings from "./pages/AccountSettings";
 import NotFound from "./pages/NotFound";
+import TripChat from "./pages/TripChat";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/account" element={<AccountSettings />} />
+            <Route path="/trip/:tripId/chat" element={<TripChat />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
