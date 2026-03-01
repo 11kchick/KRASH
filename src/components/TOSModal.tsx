@@ -128,7 +128,12 @@ const TOSModal = ({ open, onAccept, onDecline }: TOSModalProps) => {
 
             <section className="space-y-2">
               <h3 className="font-display text-foreground text-base">10. Dispute Resolution</h3>
-              <p className="text-muted-foreground">Any disputes arising from or related to these Terms or the Service shall first be attempted to be resolved through good-faith negotiation. If a resolution cannot be reached within 30 days, disputes shall be submitted to binding arbitration in accordance with applicable rules. You agree that any claims will be brought individually, not as part of a class action or representative proceeding.</p>
+              <p className="text-muted-foreground">In the event of a dispute arising from or related to these Terms or the Service:</p>
+              <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
+                <li>Disputes shall first be attempted to be resolved through good-faith negotiation</li>
+                <li>If a resolution cannot be reached within 30 days, disputes shall be submitted to binding arbitration in accordance with applicable rules</li>
+                <li>You agree that any claims will be brought individually, not as part of a class action or representative proceeding</li>
+              </ul>
             </section>
 
             <section className="space-y-2">
