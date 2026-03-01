@@ -17,7 +17,7 @@ interface FundingRequest {
 
 const requests: FundingRequest[] = [
   { id: "1", traveler: "James R.", destination: "Colorado", amount: 210, tripDate: "Mar 15, 2026", reason: "Business trip — only staying 1 week but matched with 3-week group" },
-  { id: "2", traveler: "Priya K.", destination: "Austin, TX", amount: 150, tripDate: "Apr 2, 2026", reason: "Student traveler, first time using TripLink" },
+  { id: "2", traveler: "Priya K.", destination: "Austin, TX", amount: 150, tripDate: "Apr 2, 2026", reason: "Student traveler, first time using JourneyNexus" },
   { id: "3", traveler: "Carlos M.", destination: "Miami, FL", amount: 180, tripDate: "Mar 28, 2026", reason: "Recently laid off, trip was already planned with friends" },
 ];
 
@@ -57,7 +57,7 @@ const DonatePage = () => {
             Help a Traveler Out
           </h1>
           <p className="text-muted-foreground font-body text-lg max-w-2xl">
-            Fund a specific request or make a general donation to the TripLink community pool. 
+            Fund a specific request or make a general donation to the JourneyNexus community pool. 
             Every dollar helps someone experience something new.
           </p>
         </motion.div>

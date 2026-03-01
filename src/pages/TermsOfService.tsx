@@ -23,12 +23,12 @@ const TermsOfService = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">1. Acceptance of Terms</h2>
-              <p className="text-muted-foreground">By accessing or using TripLink ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service.</p>
+              <p className="text-muted-foreground">By accessing or using JourneyNexus ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service.</p>
             </section>
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">2. Description of Service</h2>
-              <p className="text-muted-foreground">TripLink is a platform that connects travelers heading to the same destination to share costs and experiences. We facilitate connections — we are not a travel agency, tour operator, or accommodation provider.</p>
+              <p className="text-muted-foreground">JourneyNexus is a platform that connects travelers heading to the same destination to share costs and experiences. We facilitate connections — we are not a travel agency, tour operator, or accommodation provider.</p>
             </section>
 
             <section className="space-y-3">
@@ -61,12 +61,12 @@ const TermsOfService = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">6. Donations & Payments</h2>
-              <p className="text-muted-foreground">Donations made through TripLink are voluntary and processed by third-party payment providers. We do not store payment card information. Refund policies are outlined on the donation page.</p>
+              <p className="text-muted-foreground">Donations made through JourneyNexus are voluntary and processed by third-party payment providers. We do not store payment card information. Refund policies are outlined on the donation page.</p>
             </section>
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">7. Limitation of Liability</h2>
-              <p className="text-muted-foreground">TripLink is provided "as-is" without warranties of any kind. We are not liable for:</p>
+              <p className="text-muted-foreground">JourneyNexus is provided "as-is" without warranties of any kind. We are not liable for:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>The behavior, actions, or reliability of other users</li>
                 <li>Any losses arising from trip arrangements made through the platform</li>
@@ -76,7 +76,7 @@ const TermsOfService = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">8. Intellectual Property</h2>
-              <p className="text-muted-foreground">All content, branding, and code on TripLink is owned by us or our licensors. You retain ownership of content you post, but grant us a license to display it on the platform.</p>
+              <p className="text-muted-foreground">All content, branding, and code on JourneyNexus is owned by us or our licensors. You retain ownership of content you post, but grant us a license to display it on the platform.</p>
             </section>
 
             <section className="space-y-3">
@@ -96,11 +96,11 @@ const TermsOfService = () => {
 
             <section className="space-y-3">
               <h2 className="text-xl font-display">12. Contact</h2>
-              <p className="text-muted-foreground">For questions about these terms, contact us at <strong className="text-foreground">legal@triplink.app</strong>.</p>
+              <p className="text-muted-foreground">For questions about these terms, contact us at <strong className="text-foreground">legal@journeynexus.app</strong>.</p>
             </section>
 
             <div className="pt-4 border-t border-border">
-              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">legal@triplink.app</strong></p>
+              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">legal@journeynexus.app</strong></p>
             </div>
           </div>
         </motion.div>

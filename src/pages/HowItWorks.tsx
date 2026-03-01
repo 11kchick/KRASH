@@ -44,7 +44,7 @@ const HowItWorks = () => (
         animate={{ opacity: 1, y: 0 }}
         className="mb-12"
       >
-        <h1 className="text-3xl sm:text-4xl font-display text-foreground mb-3">How TripLink Works</h1>
+        <h1 className="text-3xl sm:text-4xl font-display text-foreground mb-3">How JourneyNexus Works</h1>
         <p className="text-muted-foreground font-body text-lg">
           From posting to matching to paying — here's the full breakdown.
         </p>
