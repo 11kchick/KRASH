@@ -117,7 +117,7 @@ const TOSModal = ({ open, onAccept, onDecline }: TOSModalProps) => {
 
             <section className="space-y-2">
               <h3 className="font-display text-foreground text-base">9. Indemnification</h3>
-              <p className="text-muted-foreground">You agree to indemnify, defend, and hold harmless JourneyNexus, its officers, employees, and affiliates from any claims, damages, losses, liabilities, costs, or expenses (including reasonable legal fees) arising out of or related to:</p>
+              <p className="text-muted-foreground">To the fullest extent permitted by law, you agree to indemnify, defend, and hold harmless JourneyNexus, its officers, employees, and affiliates from any claims — including claims brought by third parties — damages, losses, liabilities, costs, or expenses (including reasonable legal fees) arising out of or related to:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Your use or misuse of the Service</li>
                 <li>Your interactions with other users, whether online or in person</li>
