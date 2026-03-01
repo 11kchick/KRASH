@@ -63,8 +63,12 @@ const TOSModal = ({ open, onAccept, onDecline }: TOSModalProps) => {
               <h3 className="font-display text-foreground text-base">4. User Accounts</h3>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>You are responsible for maintaining the security of your account credentials</li>
+                <li><strong className="text-foreground">You are fully responsible for all activity that occurs under your account</strong>, whether or not you authorized it</li>
                 <li>You must provide accurate and truthful information</li>
                 <li>You may not create multiple accounts or impersonate others</li>
+                <li>You may not share, transfer, sell, or otherwise provide access to your account to any other person or entity</li>
+                <li>You must notify us immediately at <strong className="text-foreground">legal@journeynexus.app</strong> if you believe your credentials have been compromised or your account has been accessed without authorization</li>
+                <li>We reserve the right to suspend or terminate your account at any time if we determine, in our sole discretion, that you have violated these Terms or engaged in conduct that may harm other users or the Service</li>
                 <li>You may delete your account at any time from your account settings</li>
               </ul>
             </section>
