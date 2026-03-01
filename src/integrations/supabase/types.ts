@@ -44,6 +44,68 @@ export type Database = {
         }
         Relationships: []
       }
+      chat_restrictions: {
+        Row: {
+          created_at: string
+          id: string
+          is_permanent: boolean
+          reason: string
+          restricted_until: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_permanent?: boolean
+          reason?: string
+          restricted_until?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_permanent?: boolean
+          reason?: string
+          restricted_until?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      chat_violations: {
+        Row: {
+          blocked_content: string
+          created_at: string
+          id: string
+          reason: string
+          trip_id: string
+          user_id: string
+        }
+        Insert: {
+          blocked_content: string
+          created_at?: string
+          id?: string
+          reason: string
+          trip_id: string
+          user_id: string
+        }
+        Update: {
+          blocked_content?: string
+          created_at?: string
+          id?: string
+          reason?: string
+          trip_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_violations_trip_id_fkey"
+            columns: ["trip_id"]
+            isOneToOne: false
+            referencedRelation: "trips"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       donations: {
         Row: {
           amount: number
