@@ -203,7 +203,7 @@ const AccountSettings = () => {
               <Shield className="w-5 h-5" /> Danger Zone
             </h2>
             <p className="text-sm text-muted-foreground font-body">
-              Permanently delete your account and all associated data (trips, donations). This action cannot be undone.
+              Permanently delete your account and all associated data (trips, feedback). This action cannot be undone.
             </p>
             <Button variant="destructive" onClick={handleDeleteAccount} disabled={deleting}>
               <Trash2 className="w-4 h-4 mr-2" /> Delete My Account

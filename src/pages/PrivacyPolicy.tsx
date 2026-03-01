@@ -93,7 +93,7 @@ const PrivacyPolicy = () => {
               <p className="text-muted-foreground">We may share limited data with:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Authentication providers (Google Sign-In)</li>
-                <li>Payment processors (for donations)</li>
+                <li>Payment processors (for membership fees)</li>
                 <li>Analytics services (anonymized only, with consent)</li>
               </ul>
             </section>

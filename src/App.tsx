@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 import BrowseTrips from "./pages/BrowseTrips";
 import PostTrip from "./pages/PostTrip";
 import HowItWorks from "./pages/HowItWorks";
-import DonatePage from "./pages/DonatePage";
+import FeedbackPage from "./pages/FeedbackPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AuthPage from "./pages/AuthPage";
@@ -35,7 +35,7 @@ const App = () => (
             <Route path="/browse" element={<BrowseTrips />} />
             <Route path="/post" element={<PostTrip />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/donate" element={<DonatePage />} />
+            <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/auth" element={<AuthPage />} />

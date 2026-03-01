@@ -23,7 +23,7 @@ const Navbar = () => {
     { to: "/browse", label: "Browse Trips" },
     { to: "/post", label: "Post a Trip" },
     { to: "/how-it-works", label: "How It Works" },
-    { to: "/donate", label: "Support" },
+    { to: "/feedback", label: "Feedback" },
   ];
 
   const handleSignOut = async () => {
