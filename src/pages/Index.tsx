@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { MapPin, Users, Calendar, ArrowRight, Heart, DollarSign, Handshake } from "lucide-react";
+import { MapPin, Users, Calendar, ArrowRight, Handshake, MessageSquare } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => (
@@ -109,7 +109,7 @@ const HowItWorksSection = () => (
   </section>
 );
 
-const DonationSection = () => (
+const FeedbackSection = () => (
   <section className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -118,25 +118,22 @@ const DonationSection = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coral/10 text-coral mb-4">
-            <Heart className="w-4 h-4" />
-            <span className="text-sm font-medium font-body">Community Powered</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+            <MessageSquare className="w-4 h-4" />
+            <span className="text-sm font-medium font-body">Community Driven</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-            Can't Cover Your Share? We've Got You.
+            Your Voice Shapes JourneyNexus
           </h2>
           <p className="text-muted-foreground text-lg font-body mb-6 leading-relaxed">
-            Our donor community helps travelers who can't afford their full portion. 
-            Submit a request at least 3 days before your trip, and if a donor picks it up, 
-            you're covered. If not, you agree to pay your part. Fair and simple.
+            Have a question, concern, or a brilliant idea? We're building this platform 
+            together. Share your feedback and help us make travel better for everyone.
           </p>
-          <div className="flex gap-4">
-            <Link to="/donate">
-              <Button variant="hero" size="lg">
-                <Heart className="w-4 h-4" /> Become a Donor
-              </Button>
-            </Link>
-          </div>
+          <Link to="/feedback">
+            <Button variant="hero" size="lg">
+              <MessageSquare className="w-4 h-4" /> Share Feedback
+            </Button>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -146,9 +143,9 @@ const DonationSection = () => (
           className="space-y-4"
         >
           {[
-            { icon: DollarSign, title: "Costs Split Evenly", desc: "Total accommodation cost divided by all travelers. Everyone pays their fair share." },
-            { icon: Calendar, title: "3-Day Request Window", desc: "Funding requests must be accepted 3 days before the stay begins." },
-            { icon: Heart, title: "Donor-Backed", desc: "Past travelers, helpers, and generous donors fund those who need a hand." },
+            { icon: MessageSquare, title: "Ask Questions", desc: "Curious about how something works? We're here to help." },
+            { icon: MapPin, title: "Suggest Features", desc: "Have an idea that would make your travel experience better? Tell us." },
+            { icon: Users, title: "Report Concerns", desc: "Safety is our priority. Flag anything that doesn't feel right." },
           ].map((item, i) => (
             <div key={i} className="flex gap-4 p-5 rounded-xl bg-card shadow-card">
               <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
@@ -283,7 +280,7 @@ const Index = () => {
       <HeroSection />
       <HowItWorksSection />
       <ExampleSection />
-      <DonationSection />
+      <FeedbackSection />
       <CTASection />
       <Footer />
     </div>

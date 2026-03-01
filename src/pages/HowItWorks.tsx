@@ -31,8 +31,8 @@ const steps = [
   },
   {
     icon: Heart,
-    title: "6. Request Donor Support",
-    description: "Can't afford your full share? Request help from our donor community. Requests must be accepted 3 days before the stay. If no one picks it up, you agree to cover your part.",
+    title: "6. Travel & Connect",
+    description: "Meet your travel companions, share the experience, and make memories. Everyone in the group is verified with a live photo and ID for safety.",
   },
 ];
 
@@ -78,11 +78,10 @@ const HowItWorks = () => (
         className="mt-12 bg-card rounded-2xl shadow-elevated p-8 text-center"
       >
         <Shield className="w-10 h-10 text-secondary mx-auto mb-4" />
-        <h3 className="font-display text-xl text-foreground mb-2">The 3-Day Rule</h3>
+        <h3 className="font-display text-xl text-foreground mb-2">Safety First</h3>
         <p className="text-muted-foreground font-body max-w-xl mx-auto mb-6">
-          If you request donor support, it must be accepted at least 3 days before your trip starts. 
-          By submitting a request, you consent to covering your share if no donor steps in. 
-          This keeps things fair for everyone.
+          Every traveler must complete ID verification and take a live profile photo before joining a trip. 
+          Under-18 travelers are counted in the group but don't need their own account — their parent or guardian covers their share.
         </p>
         <Link to="/post">
           <Button variant="hero" size="lg">Get Started</Button>
