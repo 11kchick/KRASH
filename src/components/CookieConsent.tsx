@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Cookie } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const COOKIE_CONSENT_KEY = "triplink_cookie_consent";
+const COOKIE_CONSENT_KEY = "journeynexus_cookie_consent";
 
 type ConsentChoice = "all" | "essential" | null;
 
@@ -42,7 +42,7 @@ const CookieConsent = () => {
               <div>
                 <h3 className="font-display text-foreground text-lg mb-1">We value your privacy</h3>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                  We use essential cookies for authentication and security. Optional analytics cookies help us improve TripLink. 
+                  We use essential cookies for authentication and security. Optional analytics cookies help us improve JourneyNexus. 
                   Read our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
                 </p>
               </div>

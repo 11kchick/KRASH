@@ -75,7 +75,7 @@ const HowItWorksSection = () => (
         className="text-center mb-16"
       >
         <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-          How TripLink Works
+          How JourneyNexus Works
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
           Three simple inputs. One powerful connection.
@@ -263,10 +263,10 @@ const Footer = () => (
           <div className="w-8 h-8 rounded-lg bg-gradient-hero flex items-center justify-center">
             <Users className="w-4 h-4 text-white" />
           </div>
-          <span className="font-display text-lg text-background">TripLink</span>
+          <span className="font-display text-lg text-background">JourneyNexus</span>
         </div>
         <p className="text-background/50 text-sm font-body">
-          © 2026 TripLink. Travel together, save together.
+          © 2026 JourneyNexus. Travel together, save together.
         </p>
       </div>
     </div>
