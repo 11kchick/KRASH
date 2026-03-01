@@ -18,8 +18,8 @@ const HeroSection = () => (
         className="max-w-2xl"
       >
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display leading-tight text-white mb-6">
-          Travel Together,{" "}
-          <span className="text-gradient">Split the Cost</span>
+          Break Routine.{" "}
+          <span className="text-gradient">Build Memories.</span>
         </h1>
         <p className="text-lg sm:text-xl text-white/80 font-body mb-8 leading-relaxed">
           Connect with strangers heading to the same destination. Share accommodations, 
@@ -75,7 +75,7 @@ const HowItWorksSection = () => (
         className="text-center mb-16"
       >
         <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-          How JourneyNexus Works
+          How KRASH Works
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
           Three simple inputs. One powerful connection.
@@ -123,7 +123,7 @@ const FeedbackSection = () => (
             <span className="text-sm font-medium font-body">Community Driven</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-            Your Voice Shapes JourneyNexus
+            Your Voice Shapes KRASH
           </h2>
           <p className="text-muted-foreground text-lg font-body mb-6 leading-relaxed">
             Have a question, concern, or a brilliant idea? We're building this platform 
@@ -260,7 +260,7 @@ const Footer = () => (
           <div className="w-8 h-8 rounded-lg bg-gradient-hero flex items-center justify-center">
             <Users className="w-4 h-4 text-white" />
           </div>
-          <span className="font-display text-lg text-background">JourneyNexus</span>
+          <span className="font-display text-lg text-background">KRASH</span>
         </div>
         <div className="flex items-center gap-4 text-sm font-body flex-wrap justify-center">
           <Link to="/privacy" className="text-background/50 hover:text-background transition-colors">Privacy Policy</Link>
@@ -269,7 +269,7 @@ const Footer = () => (
           <Link to="/privacy#cookies" className="text-background/50 hover:text-background transition-colors">Cookie Statement</Link>
         </div>
         <p className="text-background/50 text-sm font-body">
-          © 2026 JourneyNexus. Travel together, save together.
+          © 2026 KRASH. Break routine. Build memories.
         </p>
       </div>
     </div>

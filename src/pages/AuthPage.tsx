@@ -128,7 +128,7 @@ const AuthPage = () => {
       <div className="max-w-md w-full mx-auto px-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-3xl font-display text-foreground mb-2 text-center">
-            {mode === "login" ? "Welcome Back" : "Join JourneyNexus"}
+            {mode === "login" ? "Welcome Back" : "Join KRASH"}
           </h1>
           <p className="text-muted-foreground font-body text-center mb-8">
             {mode === "login" ? "Sign in to your account" : "Create your account to start connecting"}
