@@ -89,6 +89,7 @@ const TermsOfService = () => {
                 <li>Any losses, injuries, damages, or claims arising from trip arrangements, shared accommodations, or in-person meetings facilitated through the platform</li>
                 <li>Service interruptions, data loss, or security breaches beyond our reasonable control</li>
                 <li>The performance, availability, accuracy, or security of any third-party services integrated with or linked from the platform, including payment processors, mapping services, and communication tools</li>
+                <li>Any other direct or indirect losses, damages, or claims arising from your use of the Service</li>
               </ul>
             </section>
 
