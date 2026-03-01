@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
               </ul>
             </section>
 
-            <section className="space-y-3">
+            <section id="your-choices" className="space-y-3">
               <h2 className="text-xl font-display">5. Your Rights</h2>
               <p className="text-muted-foreground">Under GDPR and CCPA, you have the right to:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
@@ -78,7 +78,7 @@ const PrivacyPolicy = () => {
               <p className="text-muted-foreground">To exercise any of these rights, contact us at <strong className="text-foreground">privacy@journeynexus.app</strong>.</p>
             </section>
 
-            <section className="space-y-3">
+            <section id="cookies" className="space-y-3">
               <h2 className="text-xl font-display">6. Cookies</h2>
               <p className="text-muted-foreground">We use essential cookies for authentication and session management. Optional analytics cookies are only set with your explicit consent. You can manage your preferences at any time through our cookie banner.</p>
             </section>
