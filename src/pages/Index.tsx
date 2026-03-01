@@ -5,7 +5,7 @@ import { MapPin, Users, Calendar, ArrowRight, Handshake, MessageSquare } from "l
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => (
-  <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+  <section className="relative min-h-[90vh] flex items-center overflow-hidden" aria-label="Hero">
     <div className="absolute inset-0">
       <img src={heroBg} alt="Travelers meeting at sunset" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
@@ -66,7 +66,7 @@ const steps = [
 ];
 
 const HowItWorksSection = () => (
-  <section className="py-24 bg-gradient-warm">
+  <section className="py-24 bg-gradient-warm" aria-label="How it works">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -92,10 +92,10 @@ const HowItWorksSection = () => (
             transition={{ delay: i * 0.1 }}
             className="relative bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 group"
           >
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
               <step.icon className="w-6 h-6 text-primary" />
             </div>
-            <span className="absolute top-4 right-4 text-5xl font-display text-muted/60">
+            <span className="absolute top-4 right-4 text-5xl font-display text-muted/60" aria-hidden="true">
               {i + 1}
             </span>
             <h3 className="text-lg font-display text-foreground mb-2">{step.title}</h3>
@@ -110,7 +110,7 @@ const HowItWorksSection = () => (
 );
 
 const FeedbackSection = () => (
-  <section className="py-24 bg-background">
+  <section className="py-24 bg-background" aria-label="Community feedback">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
@@ -164,7 +164,7 @@ const FeedbackSection = () => (
 );
 
 const ExampleSection = () => (
-  <section className="py-24 bg-muted/50">
+  <section className="py-24 bg-muted/50" aria-label="Example trip">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -226,7 +226,7 @@ const ExampleSection = () => (
 );
 
 const CTASection = () => (
-  <section className="py-24 bg-gradient-hero">
+  <section className="py-24 bg-gradient-hero" aria-label="Call to action">
     <div className="max-w-4xl mx-auto px-4 text-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -253,21 +253,21 @@ const CTASection = () => (
 );
 
 const Footer = () => (
-  <footer className="py-12 bg-foreground">
+  <footer className="py-12 bg-foreground" role="contentinfo">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-hero flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-hero flex items-center justify-center" aria-hidden="true">
             <Users className="w-4 h-4 text-white" />
           </div>
           <span className="font-display text-lg text-background">KRASH</span>
         </div>
-        <div className="flex items-center gap-4 text-sm font-body flex-wrap justify-center">
+        <nav aria-label="Footer navigation" className="flex items-center gap-4 text-sm font-body flex-wrap justify-center">
           <Link to="/privacy" className="text-background/50 hover:text-background transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="text-background/50 hover:text-background transition-colors">Terms of Service</Link>
           <Link to="/privacy#your-choices" className="text-background/50 hover:text-background transition-colors">Privacy Choices</Link>
           <Link to="/privacy#cookies" className="text-background/50 hover:text-background transition-colors">Cookie Statement</Link>
-        </div>
+        </nav>
         <p className="text-background/50 text-sm font-body">
           © 2026 KRASH. Break routine. Build memories.
         </p>

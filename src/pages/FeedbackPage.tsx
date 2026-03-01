@@ -95,6 +95,7 @@ const FeedbackPage = () => {
                     key={cat.value}
                     type="button"
                     onClick={() => setCategory(cat.value)}
+                    aria-pressed={category === cat.value}
                     className={`p-4 rounded-xl border text-left transition-all ${
                       category === cat.value
                         ? "border-primary bg-primary/5 shadow-sm"

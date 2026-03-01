@@ -125,7 +125,7 @@ const AccountSettings = () => {
                 {profile?.avatar_url ? (
                   <img
                     src={profile.avatar_url}
-                    alt="Profile"
+                    alt="Your profile photo"
                     className="w-32 h-32 rounded-full object-cover border-4 border-primary/20"
                   />
                 ) : (

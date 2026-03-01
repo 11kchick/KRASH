@@ -173,7 +173,7 @@ const TripCard = ({ trip, userId, chatActive }: { trip: any; userId: string; cha
           >
             <div className="w-5 h-5 rounded-full overflow-hidden bg-muted">
               {member.avatar_url ? (
-                <img src={member.avatar_url} alt="" className="w-full h-full object-cover" />
+                <img src={member.avatar_url} alt={`${member.name || "Member"}'s profile photo`} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-[10px] font-display text-muted-foreground">
                   {member.name?.charAt(0) || "?"}

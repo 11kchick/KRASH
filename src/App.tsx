@@ -31,24 +31,29 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/browse" element={<BrowseTrips />} />
-            <Route path="/post" element={<PostTrip />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/feedback" element={<FeedbackPage />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/account" element={<AccountSettings />} />
-            <Route path="/my-trips" element={<MyTrips />} />
-            <Route path="/trip/:tripId/chat" element={<TripChat />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <main id="main-content">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/browse" element={<BrowseTrips />} />
+              <Route path="/post" element={<PostTrip />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/feedback" element={<FeedbackPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/account" element={<AccountSettings />} />
+              <Route path="/my-trips" element={<MyTrips />} />
+              <Route path="/trip/:tripId/chat" element={<TripChat />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
           <CookieConsent />
         </AuthProvider>
       </BrowserRouter>
