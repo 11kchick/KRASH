@@ -68,20 +68,14 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">6. Donations & Payments</h2>
-              <p className="text-muted-foreground">Any donations made through the Service are voluntary and processed by third-party payment providers. We do not store payment card information. Refund policies are outlined on the donation page.</p>
-              <p className="text-muted-foreground">If any paid services are offered, fees will be disclosed before payment is made. You acknowledge that payment processing is handled by third-party processors, and we are not responsible for payment disputes, chargebacks, or issues related to transactions.</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-display">7. Personal Safety & User Vetting</h2>
+              <h2 className="text-xl font-display">6. Personal Safety & User Vetting</h2>
               <p className="text-muted-foreground">The Service does not conduct comprehensive background checks, criminal screenings, or identity verifications on all users. While we may offer optional user verification features, <strong className="text-foreground">we do not guarantee the identity, character, or intentions of any user.</strong></p>
               <p className="text-muted-foreground">You acknowledge that meeting and traveling with strangers involves inherent risks. It is your sole responsibility to exercise personal judgment, conduct your own due diligence, and take appropriate safety precautions when interacting with other users both online and in person.</p>
               <p className="text-muted-foreground"><strong className="text-foreground">You agree that the Service is not liable for any injuries, losses, damages, or harm—whether physical, emotional, or financial—resulting from your interactions with other users, whether online or in person. You use the Service and engage with other users entirely at your own risk.</strong></p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">8. Limitation of Liability</h2>
+              <h2 className="text-xl font-display">7. Limitation of Liability</h2>
               <p className="text-muted-foreground">The Service is provided "as-is" without warranties of any kind. To the fullest extent permitted by law, we are not liable for:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>The behavior, actions, safety, or reliability of other users</li>
@@ -94,7 +88,7 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">9. Indemnification</h2>
+              <h2 className="text-xl font-display">8. Indemnification</h2>
               <p className="text-muted-foreground">To the fullest extent permitted by law, you agree to indemnify, defend, and hold harmless the Service, its officers, employees, affiliates, and agents from any claims, damages, losses, liabilities, costs, or expenses (including reasonable legal fees) arising out of:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Your use or misuse of the Service</li>
@@ -105,7 +99,7 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">10. Dispute Resolution</h2>
+              <h2 className="text-xl font-display">9. Dispute Resolution</h2>
               <p className="text-muted-foreground">In the event of a dispute arising from or related to these Terms or the Service:</p>
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Disputes should first be attempted to be resolved through good-faith negotiation</li>
@@ -115,25 +109,25 @@ const TermsOfService = () => {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">11. Intellectual Property</h2>
+              <h2 className="text-xl font-display">10. Intellectual Property</h2>
               <p className="text-muted-foreground">All content, branding, and code on the Service, including but not limited to the design, layout, text, images, and software, are owned by us or our licensors and are protected by intellectual property laws.</p>
               <p className="text-muted-foreground">You retain ownership of content you post on the Service but grant us a non-exclusive, worldwide, royalty-free license to display, use, and distribute such content solely in connection with the Service.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">12. Privacy</h2>
+              <h2 className="text-xl font-display">11. Privacy</h2>
               <p className="text-muted-foreground">Your use of the Service is also governed by our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>, which explains how we collect, use, and protect your personal data. By using the Service, you consent to the collection and use of your information as outlined in the Privacy Policy.</p>
               <p className="text-muted-foreground">If you are a resident of the European Union, the General Data Protection Regulation (GDPR) applies to your personal data.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">13. Termination</h2>
+              <h2 className="text-xl font-display">12. Termination</h2>
               <p className="text-muted-foreground">We reserve the right to suspend or terminate any accounts that violate these Terms or engage in harmful conduct. You may terminate your account at any time by visiting your account settings.</p>
               <p className="text-muted-foreground">Upon termination, your account and any related data will be deleted in accordance with our Privacy Policy, except where we are required by law to retain data for longer periods.</p>
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-display">14. Changes to Terms</h2>
+              <h2 className="text-xl font-display">13. Changes to Terms</h2>
               <p className="text-muted-foreground">We may update these Terms from time to time. You will be notified of material changes either via email or through a notification within the Service. Continued use of the Service after any such changes will constitute your acceptance of the updated Terms.</p>
               <p className="text-muted-foreground">If you do not agree to the revised Terms, you must stop using the Service.</p>
             </section>
