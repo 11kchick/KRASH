@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { Send, AlertTriangle, Users, ArrowLeft, MapPin, Lock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, AlertTriangle, Users, ArrowLeft, MapPin, Lock, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams, Navigate, Link } from "react-router-dom";
-import { format, isPast, addDays } from "date-fns";
+import { format, isPast, addDays, addHours } from "date-fns";
+import { filterMessage, TEMP_BAN_THRESHOLD, PERM_BAN_THRESHOLD, TEMP_BAN_HOURS } from "@/lib/content-filter";
 
 interface Message {
   id: string;
@@ -30,6 +31,7 @@ const TripChat = () => {
   const queryClient = useQueryClient();
   const [newMessage, setNewMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const [blockWarning, setBlockWarning] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -62,6 +64,40 @@ const TripChat = () => {
       return data;
     },
     enabled: !!tripId && !!user,
+  });
+
+  // Check chat restriction
+  const { data: restriction } = useQuery({
+    queryKey: ["chat-restriction", user?.id],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("chat_restrictions")
+        .select("*")
+        .eq("user_id", user!.id)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (error) throw error;
+      if (!data) return null;
+      if (data.is_permanent) return data;
+      if (data.restricted_until && isPast(new Date(data.restricted_until))) return null;
+      return data;
+    },
+    enabled: !!user,
+  });
+
+  // Count violations
+  const { data: violationCount = 0, refetch: refetchViolations } = useQuery({
+    queryKey: ["violation-count", user?.id],
+    queryFn: async () => {
+      const { count, error } = await supabase
+        .from("chat_violations")
+        .select("*", { count: "exact", head: true })
+        .eq("user_id", user!.id);
+      if (error) throw error;
+      return count || 0;
+    },
+    enabled: !!user,
   });
 
   // Fetch members with profiles
@@ -147,7 +183,45 @@ const TripChat = () => {
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newMessage.trim() || !user || !tripId) return;
+    if (!newMessage.trim() || !user || !tripId || restriction) return;
+
+    // Content filter check
+    const filterResult = filterMessage(newMessage);
+    if (filterResult.blocked) {
+      // Log the violation
+      await supabase.from("chat_violations").insert({
+        user_id: user.id,
+        trip_id: tripId,
+        blocked_content: newMessage.trim().substring(0, 500),
+        reason: filterResult.reason || "unknown",
+      });
+
+      const newCount = violationCount + 1;
+      
+      // Check if restriction should be applied
+      if (newCount >= PERM_BAN_THRESHOLD) {
+        await supabase.from("chat_restrictions").insert({
+          user_id: user.id,
+          is_permanent: true,
+          reason: "Permanent restriction due to repeated content violations",
+        });
+        queryClient.invalidateQueries({ queryKey: ["chat-restriction", user.id] });
+      } else if (newCount >= TEMP_BAN_THRESHOLD) {
+        await supabase.from("chat_restrictions").insert({
+          user_id: user.id,
+          is_permanent: false,
+          restricted_until: addHours(new Date(), TEMP_BAN_HOURS).toISOString(),
+          reason: `Temporary ${TEMP_BAN_HOURS}h restriction due to repeated content violations`,
+        });
+        queryClient.invalidateQueries({ queryKey: ["chat-restriction", user.id] });
+      }
+
+      refetchViolations();
+      setBlockWarning(filterResult.message || "Message blocked.");
+      setTimeout(() => setBlockWarning(null), 8000);
+      return;
+    }
+
     setSending(true);
     await supabase.from("trip_messages").insert({
       trip_id: tripId,
@@ -299,7 +373,27 @@ const TripChat = () => {
         </div>
       </div>
 
-      {/* Input or Locked banner */}
+      {/* Block Warning Popup */}
+      <AnimatePresence>
+        {blockWarning && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 max-w-md w-[90%]"
+          >
+            <div className="bg-destructive text-destructive-foreground rounded-xl px-4 py-3 shadow-lg flex items-start gap-3">
+              <ShieldAlert className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-body font-medium">{blockWarning}</p>
+              </div>
+              <button onClick={() => setBlockWarning(null)} className="ml-auto text-destructive-foreground/70 hover:text-destructive-foreground text-lg leading-none">×</button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Input or Locked/Restricted banner */}
       {(() => {
         const chatExpired = trip?.end_date && isPast(addDays(new Date(trip.end_date), 30));
         if (chatExpired) {
@@ -308,6 +402,20 @@ const TripChat = () => {
               <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-muted-foreground">
                 <Lock className="w-4 h-4" />
                 <p className="text-sm font-body">This chat is now read-only. The trip ended more than 30 days ago.</p>
+              </div>
+            </div>
+          );
+        }
+        if (restriction) {
+          return (
+            <div className="bg-destructive/10 border-t border-destructive/20 px-4 py-4">
+              <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-destructive">
+                <ShieldAlert className="w-4 h-4" />
+                <p className="text-sm font-body">
+                  {restriction.is_permanent
+                    ? "Your chat access has been permanently restricted due to repeated violations."
+                    : `Your chat access is temporarily restricted until ${format(new Date(restriction.restricted_until!), "MMM d, h:mm a")}.`}
+                </p>
               </div>
             </div>
           );
