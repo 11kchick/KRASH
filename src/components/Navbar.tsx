@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Users, Menu, X, LogOut, Settings, Shield } from "lucide-react";
+import { Users, Menu, X, LogOut, Settings, Shield, MapPin } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
@@ -67,6 +67,9 @@ const Navbar = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem onClick={() => navigate("/my-trips")}>
+                    <MapPin className="w-4 h-4 mr-2" /> My Trips
+                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => navigate("/account")}>
                     <Settings className="w-4 h-4 mr-2" /> Account Settings
                   </DropdownMenuItem>

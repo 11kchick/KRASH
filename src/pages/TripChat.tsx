@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, AlertTriangle, Users, ArrowLeft, MapPin } from "lucide-react";
+import { Send, AlertTriangle, Users, ArrowLeft, MapPin, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams, Navigate, Link } from "react-router-dom";
-import { format } from "date-fns";
+import { format, isPast, addDays } from "date-fns";
 
 interface Message {
   id: string;
@@ -299,28 +299,43 @@ const TripChat = () => {
         </div>
       </div>
 
-      {/* Input */}
-      <div className="bg-card border-t border-border px-4 py-3">
-        <form onSubmit={handleSend} className="max-w-4xl mx-auto flex gap-2">
-          <Input
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            placeholder="Type a message..."
-            className="flex-1 h-11"
-            maxLength={2000}
-            autoFocus
-          />
-          <Button
-            variant="hero"
-            size="icon"
-            type="submit"
-            disabled={!newMessage.trim() || sending}
-            className="h-11 w-11 flex-shrink-0"
-          >
-            <Send className="w-4 h-4" />
-          </Button>
-        </form>
-      </div>
+      {/* Input or Locked banner */}
+      {(() => {
+        const chatExpired = trip?.end_date && isPast(addDays(new Date(trip.end_date), 30));
+        if (chatExpired) {
+          return (
+            <div className="bg-muted border-t border-border px-4 py-4">
+              <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-muted-foreground">
+                <Lock className="w-4 h-4" />
+                <p className="text-sm font-body">This chat is now read-only. The trip ended more than 30 days ago.</p>
+              </div>
+            </div>
+          );
+        }
+        return (
+          <div className="bg-card border-t border-border px-4 py-3">
+            <form onSubmit={handleSend} className="max-w-4xl mx-auto flex gap-2">
+              <Input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Type a message..."
+                className="flex-1 h-11"
+                maxLength={2000}
+                autoFocus
+              />
+              <Button
+                variant="hero"
+                size="icon"
+                type="submit"
+                disabled={!newMessage.trim() || sending}
+                className="h-11 w-11 flex-shrink-0"
+              >
+                <Send className="w-4 h-4" />
+              </Button>
+            </form>
+          </div>
+        );
+      })()}
     </div>
   );
 };

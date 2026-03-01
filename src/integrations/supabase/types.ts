@@ -198,8 +198,10 @@ export type Database = {
         Row: {
           created_at: string
           destination: string
+          end_date: string | null
           id: string
           people_count: number
+          start_date: string | null
           stay_weeks: number
           updated_at: string
           user_id: string
@@ -207,8 +209,10 @@ export type Database = {
         Insert: {
           created_at?: string
           destination: string
+          end_date?: string | null
           id?: string
           people_count?: number
+          start_date?: string | null
           stay_weeks?: number
           updated_at?: string
           user_id: string
@@ -216,8 +220,10 @@ export type Database = {
         Update: {
           created_at?: string
           destination?: string
+          end_date?: string | null
           id?: string
           people_count?: number
+          start_date?: string | null
           stay_weeks?: number
           updated_at?: string
           user_id?: string
