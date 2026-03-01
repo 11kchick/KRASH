@@ -265,6 +265,10 @@ const Footer = () => (
           </div>
           <span className="font-display text-lg text-background">JourneyNexus</span>
         </div>
+        <div className="flex items-center gap-4 text-sm font-body">
+          <Link to="/privacy" className="text-background/50 hover:text-background transition-colors">Privacy Policy</Link>
+          <Link to="/terms" className="text-background/50 hover:text-background transition-colors">Terms of Service</Link>
+        </div>
         <p className="text-background/50 text-sm font-body">
           © 2026 JourneyNexus. Travel together, save together.
         </p>
