@@ -154,7 +154,9 @@ const PostTrip = () => {
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 className="h-12 text-base"
+                maxLength={200}
               />
+              <p className="text-xs text-muted-foreground font-body">You can be vague (just a state) or specific (city, state).</p>
             </div>
 
             <div className="space-y-2">
