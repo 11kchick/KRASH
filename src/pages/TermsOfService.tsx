@@ -44,7 +44,7 @@ const TermsOfService = () => {
                 <li>Provide accurate, truthful, and up-to-date information during the registration process</li>
                 <li>Not create multiple accounts or impersonate others</li>
                 <li>Not share, transfer, sell, or provide access to your account to any other person or entity</li>
-                <li>Notify us immediately at <strong className="text-foreground">theservice@gmail.com</strong> if you believe your account credentials have been compromised or if your account has been accessed without authorization</li>
+                <li>Notify us immediately at <strong className="text-foreground">contactkrash@yahoo.com</strong> if you believe your account credentials have been compromised or if your account has been accessed without authorization</li>
               </ul>
               <p className="text-muted-foreground">We reserve the right to suspend or terminate your account at our sole discretion if we believe you have violated these Terms or engaged in conduct that may harm other users or the Service.</p>
               <p className="text-muted-foreground">You may delete your account at any time by visiting your account settings.</p>
@@ -64,7 +64,7 @@ const TermsOfService = () => {
                 <li>Scrape, crawl, or otherwise extract data from the platform without permission</li>
                 <li>Interfere with the operation of the Service in any way</li>
               </ul>
-              <p className="text-muted-foreground">You are encouraged to report any violations of these Terms by contacting us at <strong className="text-foreground">theservice@gmail.com</strong>.</p>
+              <p className="text-muted-foreground">You are encouraged to report any violations of these Terms by contacting us at <strong className="text-foreground">contactkrash@yahoo.com</strong>.</p>
             </section>
 
             <section className="space-y-3">
@@ -133,7 +133,7 @@ const TermsOfService = () => {
             </section>
 
             <div className="pt-4 border-t border-border">
-              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">theservice@gmail.com</strong></p>
+              <p className="text-sm text-muted-foreground">Questions? Contact us at <strong className="text-foreground">contactkrash@yahoo.com</strong></p>
             </div>
           </div>
         </motion.div>
