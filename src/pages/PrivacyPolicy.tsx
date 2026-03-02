@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
                 <li><strong className="text-foreground">Legitimate interest:</strong> Security monitoring and fraud prevention</li>
                 <li><strong className="text-foreground">Legal obligation:</strong> When required by applicable law</li>
               </ul>
-              <p className="text-muted-foreground">You may withdraw consent at any time by clicking "Manage Cookies" in the footer or contacting us at <strong className="text-foreground">privacy@krash.app</strong>.</p>
+              <p className="text-muted-foreground">You may withdraw consent at any time by clicking "Manage Cookies" in the footer or contacting us at <strong className="text-foreground">contactkrash@yahoo.com</strong>.</p>
             </section>
 
             <section className="space-y-3">
@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
                 </Button>
               </div>
 
-              <p className="text-muted-foreground">To exercise any of these rights, contact us at <strong className="text-foreground">privacy@krash.app</strong>. We will respond within 30 days (GDPR) or 45 days (CCPA).</p>
+              <p className="text-muted-foreground">To exercise any of these rights, contact us at <strong className="text-foreground">contactkrash@yahoo.com</strong>. We will respond within 30 days (GDPR) or 45 days (CCPA).</p>
             </section>
 
             <section id="cookies" className="space-y-3">
@@ -154,7 +154,7 @@ const PrivacyPolicy = () => {
               <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                 <li>Clicking <button onClick={() => window.dispatchEvent(new CustomEvent("krash-open-cookie-settings"))} className="text-primary hover:underline">"Manage Cookies"</button> in the website footer</li>
                 <li>Adjusting your browser's cookie settings to block or delete cookies</li>
-                <li>Contacting us at <strong className="text-foreground">privacy@krash.app</strong> to withdraw consent</li>
+                <li>Contacting us at <strong className="text-foreground">contactkrash@yahoo.com</strong> to withdraw consent</li>
               </ul>
               <p className="text-muted-foreground">
                 <strong className="text-foreground">Note:</strong> Disabling essential cookies may prevent you from using core features like signing in.
@@ -193,7 +193,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <div className="pt-4 border-t border-border space-y-2">
-              <p className="text-sm text-muted-foreground">Questions or requests? Contact us at <strong className="text-foreground">privacy@krash.app</strong></p>
+              <p className="text-sm text-muted-foreground">Questions or requests? Contact us at <strong className="text-foreground">contactkrash@yahoo.com</strong></p>
               <p className="text-xs text-muted-foreground">If you are unsatisfied with our response, you have the right to lodge a complaint with your local data protection authority.</p>
             </div>
           </div>
