@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, AlertTriangle, Users, ArrowLeft, MapPin, Lock, ShieldAlert } from "lucide-react";
+import { Send, AlertTriangle, Users, ArrowLeft, MapPin, Lock, ShieldAlert, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
@@ -284,24 +284,44 @@ const TripChat = () => {
             </div>
           </div>
 
-          {/* Member avatars */}
-          <div className="flex -space-x-2">
-            {members?.slice(0, 5).map((m) => (
-              <div key={m.user_id} className="w-8 h-8 rounded-full border-2 border-card overflow-hidden bg-muted">
-                {m.profile?.avatar_url ? (
-                  <img src={m.profile.avatar_url} alt={`${m.profile.name}'s profile photo`} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-xs font-display text-muted-foreground">
-                    {m.profile?.name?.charAt(0) || "?"}
-                  </div>
-                )}
-              </div>
-            ))}
-            {(members?.length || 0) > 5 && (
-              <div className="w-8 h-8 rounded-full border-2 border-card bg-muted flex items-center justify-center text-xs font-body text-muted-foreground">
-                +{(members?.length || 0) - 5}
-              </div>
-            )}
+          {/* Booking links & Member avatars */}
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1.5">
+              <a
+                href={`https://www.airbnb.com/s/${encodeURIComponent(trip?.destination || "")}/homes`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-body font-medium rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+              >
+                Airbnb <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href={`https://www.vrbo.com/search?destination=${encodeURIComponent(trip?.destination || "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-body font-medium rounded-full bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
+              >
+                VRBO <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+            <div className="flex -space-x-2">
+              {members?.slice(0, 5).map((m) => (
+                <div key={m.user_id} className="w-8 h-8 rounded-full border-2 border-card overflow-hidden bg-muted">
+                  {m.profile?.avatar_url ? (
+                    <img src={m.profile.avatar_url} alt={`${m.profile.name}'s profile photo`} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs font-display text-muted-foreground">
+                      {m.profile?.name?.charAt(0) || "?"}
+                    </div>
+                  )}
+                </div>
+              ))}
+              {(members?.length || 0) > 5 && (
+                <div className="w-8 h-8 rounded-full border-2 border-card bg-muted flex items-center justify-center text-xs font-body text-muted-foreground">
+                  +{(members?.length || 0) - 5}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
