@@ -21,6 +21,7 @@ import AccountSettings from "./pages/AccountSettings";
 import NotFound from "./pages/NotFound";
 import TripChat from "./pages/TripChat";
 import MyTrips from "./pages/MyTrips";
+import InstallApp from "./pages/InstallApp";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
               <Route path="/account" element={<AccountSettings />} />
               <Route path="/my-trips" element={<MyTrips />} />
               <Route path="/trip/:tripId/chat" element={<TripChat />} />
+              <Route path="/install" element={<InstallApp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
