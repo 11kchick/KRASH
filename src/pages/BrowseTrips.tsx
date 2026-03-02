@@ -45,7 +45,7 @@ const TripCard = ({ trip }: { trip: Trip }) => {
             </div>
             <p className="text-xs text-muted-foreground font-body">Posted by {trip.postedBy} · {trip.postedAgo}</p>
           </div>
-          <div className="px-2 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-medium font-body">
+          <div className="px-2 py-1 rounded-full bg-accent/15 text-accent-foreground text-xs font-medium font-body">
             {totalPeople} matched
           </div>
         </div>
@@ -61,8 +61,8 @@ const TripCard = ({ trip }: { trip: Trip }) => {
             <p className="text-sm font-semibold text-foreground">{trip.weeks}</p>
             <p className="text-xs text-muted-foreground">{trip.weeks === 1 ? "week" : "weeks"}</p>
           </div>
-          <div className="text-center p-3 rounded-lg bg-primary/5">
-            <p className="text-sm font-semibold text-primary">${costPerPerson}</p>
+          <div className="text-center p-3 rounded-lg bg-accent/10">
+            <p className="text-sm font-semibold" style={{ color: 'hsl(var(--amber))' }}>${costPerPerson}</p>
             <p className="text-xs text-muted-foreground">per person</p>
           </div>
         </div>

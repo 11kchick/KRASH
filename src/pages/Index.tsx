@@ -92,10 +92,10 @@ const HowItWorksSection = () => (
             transition={{ delay: i * 0.1 }}
             className="relative bg-card rounded-xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 group"
           >
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors" aria-hidden="true">
-              <step.icon className="w-6 h-6 text-primary" />
+            <div className="w-12 h-12 rounded-lg bg-accent/15 flex items-center justify-center mb-4 group-hover:bg-accent/25 transition-colors" aria-hidden="true">
+              <step.icon className="w-6 h-6 text-accent-foreground" />
             </div>
-            <span className="absolute top-4 right-4 text-5xl font-display text-muted/60" aria-hidden="true">
+            <span className="absolute top-4 right-4 text-5xl font-display text-accent/40" aria-hidden="true">
               {i + 1}
             </span>
             <h3 className="text-lg font-display text-foreground mb-2">{step.title}</h3>
@@ -118,7 +118,7 @@ const FeedbackSection = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent-foreground mb-4">
             <MessageSquare className="w-4 h-4" />
             <span className="text-sm font-medium font-body">Community Driven</span>
           </div>
@@ -212,7 +212,7 @@ const ExampleSection = () => (
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <p className="font-display text-foreground">Cost Per Person</p>
-              <p className="text-2xl font-display text-primary">~$433</p>
+              <p className="text-2xl font-display text-accent-foreground" style={{ color: 'hsl(var(--amber))' }}>~$433</p>
             </div>
             <div className="text-right text-sm text-muted-foreground font-body">
               <p>6 travelers matched</p>

@@ -60,8 +60,8 @@ const HowItWorks = () => (
             transition={{ delay: i * 0.05 }}
             className="bg-card rounded-xl shadow-card p-6 flex gap-5"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <step.icon className="w-6 h-6 text-primary" />
+            <div className="w-12 h-12 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
+              <step.icon className="w-6 h-6 text-accent-foreground" />
             </div>
             <div>
               <h3 className="font-display text-lg text-foreground mb-1">{step.title}</h3>
