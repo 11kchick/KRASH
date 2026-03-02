@@ -325,6 +325,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_trip_co_member: {
+        Args: { _profile_id: string; _viewer_id: string }
+        Returns: boolean
+      }
+      is_trip_member: {
+        Args: { _trip_id: string; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       app_role: "admin" | "user"
