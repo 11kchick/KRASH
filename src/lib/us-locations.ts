@@ -1,0 +1,38 @@
+// US States and major cities for autocomplete
+export const US_LOCATIONS = [
+  // States
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+  "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
+  "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
+  "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
+  "New Hampshire", "New Jersey", "New Mexico", "New York",
+  "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+  "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+  "West Virginia", "Wisconsin", "Wyoming",
+  // Major cities
+  "Atlanta, GA", "Austin, TX", "Baltimore, MD", "Birmingham, AL",
+  "Boise, ID", "Boston, MA", "Buffalo, NY", "Charlotte, NC",
+  "Chicago, IL", "Cincinnati, OH", "Cleveland, OH", "Columbus, OH",
+  "Dallas, TX", "Denver, CO", "Detroit, MI", "El Paso, TX",
+  "Fort Worth, TX", "Honolulu, HI", "Houston, TX", "Indianapolis, IN",
+  "Jacksonville, FL", "Kansas City, MO", "Las Vegas, NV",
+  "Long Beach, CA", "Los Angeles, CA", "Louisville, KY", "Memphis, TN",
+  "Mesa, AZ", "Miami, FL", "Milwaukee, WI", "Minneapolis, MN",
+  "Nashville, TN", "New Orleans, LA", "New York City, NY", "Newark, NJ",
+  "Oakland, CA", "Oklahoma City, OK", "Omaha, NE", "Orlando, FL",
+  "Philadelphia, PA", "Phoenix, AZ", "Pittsburgh, PA", "Portland, OR",
+  "Raleigh, NC", "Sacramento, CA", "Salt Lake City, UT",
+  "San Antonio, TX", "San Diego, CA", "San Francisco, CA", "San Jose, CA",
+  "Seattle, WA", "St. Louis, MO", "Tampa, FL", "Tucson, AZ",
+  "Virginia Beach, VA", "Washington, DC",
+  // Popular tourist destinations
+  "Aspen, CO", "Cape Cod, MA", "Charleston, SC", "Destin, FL",
+  "Fort Lauderdale, FL", "Gulf Shores, AL", "Hilton Head, SC",
+  "Key West, FL", "Lake Tahoe, CA", "Maui, HI", "Myrtle Beach, SC",
+  "Napa Valley, CA", "Outer Banks, NC", "Palm Springs, CA",
+  "Panama City Beach, FL", "Park City, UT", "Savannah, GA",
+  "Scottsdale, AZ", "Sedona, AZ", "South Padre Island, TX",
+  "Steamboat Springs, CO", "Vail, CO", "Whistler, WA",
+];

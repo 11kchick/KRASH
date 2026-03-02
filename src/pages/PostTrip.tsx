@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Users, Calendar, ArrowRight, Check, Camera, CalendarIcon } from "lucide-react";
+import { Users, Calendar, ArrowRight, Check, Camera, CalendarIcon, MapPin } from "lucide-react";
+import DestinationAutocomplete from "@/components/DestinationAutocomplete";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -149,13 +150,7 @@ const PostTrip = () => {
                 <MapPin className="w-4 h-4 text-primary" />
                 Where are you going?
               </Label>
-              <Input
-                placeholder="e.g. Colorado, Austin TX, Miami..."
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                className="h-12 text-base"
-                maxLength={200}
-              />
+              <DestinationAutocomplete value={destination} onChange={setDestination} />
               <p className="text-xs text-muted-foreground font-body">You can be vague (just a state) or specific (city, state).</p>
             </div>
 
