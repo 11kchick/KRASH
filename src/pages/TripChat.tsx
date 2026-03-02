@@ -331,7 +331,7 @@ const TripChat = () => {
         <div className="max-w-4xl mx-auto flex items-center gap-2">
           <AlertTriangle className="w-4 h-4 text-destructive flex-shrink-0" />
           <p className="text-xs text-destructive font-body">
-            <strong>Safety reminder:</strong> Do not share sensitive personal information (bank details, Social Security numbers, passwords, etc.) in this chat unless you are fully comfortable doing so. KRASH is not liable for any information you choose to share.
+            <strong>Safety reminder:</strong> Do not share sensitive personal information (bank details, Social Security numbers, passwords, etc.) in this chat. KRASH is not liable for any information you choose to share.
           </p>
         </div>
       </div>
