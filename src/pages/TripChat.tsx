@@ -113,7 +113,7 @@ const TripChat = () => {
       // Fetch profiles for members
       const userIds = data.map((m: any) => m.user_id);
       const { data: profiles } = await supabase
-        .from("profiles")
+        .from("profiles_safe" as any)
         .select("id, name, avatar_url")
         .in("id", userIds);
 
