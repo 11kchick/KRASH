@@ -42,7 +42,7 @@ const MyTrips = () => {
 
           const userIds = members?.map((m: any) => m.user_id) || [];
           const { data: profiles } = await supabase
-            .from("profiles")
+            .from("profiles_safe" as any)
             .select("id, name, avatar_url")
             .in("id", userIds);
 
