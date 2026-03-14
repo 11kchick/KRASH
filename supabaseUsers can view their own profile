@@ -1,0 +1,6 @@
+ALTER TABLE profiles_safe ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can view their own profile"
+ON profiles_safe
+FOR SELECT
+USING (auth.uid() = user_id);
