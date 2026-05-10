@@ -129,31 +129,19 @@ const BrowseTrips = () => {
           <p className="text-muted-foreground font-body text-lg mb-6">
             Find travelers heading your way and join them.
           </p>
-          {user && (
-            <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
-              <Input
-                placeholder="Search by destination..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="pl-10"
-                aria-label="Search trips by destination"
-              />
-            </div>
-          )}
+          <div className="relative max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
+            <Input
+              placeholder="Search by destination..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="pl-10"
+              aria-label="Search trips by destination"
+            />
+          </div>
         </motion.div>
 
-        {!authLoading && !user ? (
-          <div className="text-center py-16 bg-card rounded-2xl shadow-card max-w-xl mx-auto p-8">
-            <h2 className="text-2xl font-display text-foreground mb-3">Sign in to browse trips</h2>
-            <p className="text-muted-foreground font-body mb-6">
-              You need an account to view and join trips posted by other travelers.
-            </p>
-            <Link to="/auth">
-              <Button variant="hero" size="lg">Sign In or Create Account</Button>
-            </Link>
-          </div>
-        ) : isLoading || authLoading ? (
+        {isLoading ? (
           <p className="text-center text-muted-foreground font-body py-16">Loading trips...</p>
         ) : filtered.length === 0 ? (
           <div className="text-center py-16">
@@ -161,7 +149,7 @@ const BrowseTrips = () => {
               {trips.length === 0 ? "No trips have been posted yet." : "No trips found for that destination."}
             </p>
             <p className="text-sm text-muted-foreground font-body mb-4">
-              {trips.length === 0 && "Be the first to post a trip and start matching with travelers."}
+              {trips.length === 0 && "Sign in and be the first to post a trip."}
             </p>
             <Link to="/post">
               <Button variant="hero" size="lg">
