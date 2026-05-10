@@ -163,68 +163,6 @@ const FeedbackSection = () => (
   </section>
 );
 
-const ExampleSection = () => (
-  <section className="py-24 bg-muted/50" aria-label="Example trip">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-          See It In Action
-        </h2>
-        <p className="text-muted-foreground text-lg font-body max-w-2xl mx-auto">
-          Here's how a real trip match might work.
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto bg-card rounded-2xl shadow-elevated p-8"
-      >
-        <div className="flex items-center gap-2 mb-6">
-          <MapPin className="w-5 h-5 text-primary" />
-          <h3 className="font-display text-xl text-foreground">Colorado — 3 Week Stay — $2,600 Total</h3>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-4 mb-6">
-          {[
-            { group: "Couple from Michigan", people: 2, weeks: 3, note: "Want extra space" },
-            { group: "Friend Group", people: 3, weeks: 2, note: "Exploring & adventure" },
-            { group: "Business Traveler", people: 1, weeks: 1, note: "Budget-conscious" },
-          ].map((g, i) => (
-            <div key={i} className="p-4 rounded-xl bg-muted/50 border border-border">
-              <p className="font-display text-foreground text-sm mb-2">{g.group}</p>
-              <div className="space-y-1 text-xs text-muted-foreground font-body">
-                <p><Users className="w-3 h-3 inline mr-1" />{g.people} {g.people === 1 ? "person" : "people"}</p>
-                <p><Calendar className="w-3 h-3 inline mr-1" />{g.weeks} {g.weeks === 1 ? "week" : "weeks"}</p>
-                <p className="italic">{g.note}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <p className="font-display text-foreground">Cost Per Person</p>
-              <p className="text-2xl font-display text-accent-foreground" style={{ color: 'hsl(var(--amber))' }}>~$433</p>
-            </div>
-            <div className="text-right text-sm text-muted-foreground font-body">
-              <p>6 travelers matched</p>
-              <p>$2,600 ÷ 6 people</p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
-
 const CTASection = () => (
   <section className="py-24 bg-gradient-hero" aria-label="Call to action">
     <div className="max-w-4xl mx-auto px-4 text-center">
@@ -286,7 +224,6 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <HowItWorksSection />
-      <ExampleSection />
       <FeedbackSection />
       <CTASection />
       <Footer />
