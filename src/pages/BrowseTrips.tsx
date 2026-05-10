@@ -79,8 +79,6 @@ const TripCard = ({ trip }: { trip: Trip }) => {
 
 const BrowseTrips = () => {
   const [search, setSearch] = useState("");
-  const { user, loading: authLoading } = useAuth();
-
   const { data: trips = [], isLoading } = useQuery({
     queryKey: ["browse-trips"],
     queryFn: async () => {
@@ -111,7 +109,6 @@ const BrowseTrips = () => {
         member_count: countMap.get(t.id) ?? 0,
       })) as Trip[];
     },
-    enabled: !!user,
   });
 
   const filtered = trips.filter((t) =>
